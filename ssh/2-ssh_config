@@ -1,1 +1,7 @@
-cat ~/.ssh/school.pub | ssh ubuntu@54.227.148.231 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
+Include /etc/ssh/ssh_config.d/*.conf
+Host *
+PasswordAuthentication no
+IdentityFile ~/.ssh/school
+SendEnv LANG LC_*
+HashKnownHosts yes
+GSSAPIAuthentication yes
