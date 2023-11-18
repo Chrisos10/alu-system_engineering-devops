@@ -1,1 +1,1 @@
-cat ~/.ssh/school | ssh ubuntu@54.227.148.231 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
+cat ~/.ssh/school.pub | ssh ubuntu@54.227.148.231 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
