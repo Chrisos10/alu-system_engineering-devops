@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-# Configuring your Nginx server so that /redirect_me is redirecting to another page.
-# The redirection must be a “301 Moved Permanently”
+# Configures an Nginx server so that /redirect_me redirects to another page.
+# The redirection is configured as a "301 Moved Permanently"
 
 apt-get update
 apt-get install -y nginx
@@ -14,8 +14,11 @@ printf %s "server {
     root   /etc/nginx/html;
     index  index.html index.htm;
 
+    location / {
+	try_files \$uri \$uri/ =404;
+    }
     location /redirect_me {
-        rewrite ^ https://www.youtube.com/watch?v=HLeYvefzUFA permanent;
+        return 301 https://www.youtube.com/watch?v=7VAI73roXaY&list=PPSV;
     }
 }" > /etc/nginx/sites-available/default
 
